@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding=utf-8
 import sys,re,time,os
-maxdata = 10683731148800 #流量上限，包括流入和流出，单位Byte
+maxdata = 10200547328000 #流量上限，包括流入和流出，单位Byte
 memfilename = '/root/newnetcardtransdata.txt'
 netcard = '/proc/net/dev'
 def checkfile(filename):
@@ -16,7 +16,7 @@ def get_net_data():
     fd = open(nc, "r")
     netcardstatus = False
     for line in fd.readlines():
-        if line.find("eth0") > 0:
+        if line.find("enp0s3") > 0:
             netcardstatus = True
             field = line.split()
             recv = field[0].split(":")[1]
